@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.util.Date;
 
+// 커밋 테스트
 @Data
 public class User {
     @JsonProperty
