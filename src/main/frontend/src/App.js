@@ -1,5 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import LoginPage from './page/login_page/loginPage';
+import SignupPage from './page/sign_up_page/signUpPage';
 
 function App() {
     const [hello, setHello] = useState('');
@@ -24,7 +27,7 @@ function App() {
         <div>
             <p>백엔드에서 가져온 데이터입니다 : {hello}</p>
 
-            <h1>User List</h1>
+            {/*            <h1>User List</h1>
             <ul>
                 {users.map(user => (
                     <li key={user.userIdNo}>
@@ -37,7 +40,16 @@ function App() {
                         <hr/>
                     </li>
                 ))}
-            </ul>
+            </ul>*/}
+
+            <Router>
+                <Routes>
+                    <Route path="/login" element={<LoginPage/>}/>
+                    <Route path="/signup" element={<SignupPage/>}/>
+                    {/* 기본 경로 설정 */}
+                    <Route path="/" element={<LoginPage/>}/>
+                </Routes>
+            </Router>
         </div>
     );
 }
